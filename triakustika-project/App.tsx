@@ -249,7 +249,7 @@ const App: React.FC = () => {
       </header>
 
       <main className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-3 overflow-hidden">
-        {/* Kolom Rumpaka - Lyrics Input */}
+        {/* Kolom Rumpaka */}
         <section className="bg-slate-900/40 border border-slate-800 rounded-xl p-3 lg:p-4 flex flex-col gap-2 shadow-xl overflow-hidden">
           <div className="flex justify-between items-center">
             <label className="text-amber-500 font-black uppercase tracking-widest text-[10px]">Rumpaka (Lirik)</label>
@@ -262,7 +262,7 @@ const App: React.FC = () => {
           />
         </section>
 
-        {/* Kolom Identitas & Sensing */}
+        {/* Kolom Identitas & Sensing - Copyright di dalam sini sudah dihapus */}
         <section className="bg-slate-900/40 border border-slate-800 rounded-xl p-3 lg:p-4 flex flex-col gap-2 relative shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 gap-2">
             <div className="flex flex-col gap-1">
@@ -309,11 +309,11 @@ const App: React.FC = () => {
         </section>
       </main>
 
-      {/* Footer Area - Single larger copyright */}
-      <footer className="w-full py-2 lg:py-4 border-t border-indigo-500/10 text-center flex flex-col items-center gap-1">
-        <h4 className="font-black text-sm lg:text-base text-slate-400 tracking-widest uppercase">TRIAKUSTIKA SUNDA</h4>
-        <p className="text-[10px] lg:text-xs uppercase tracking-[0.2em] font-black text-slate-500">Gunung, Frekuensi, dan Kosmologi Tembang Sunda</p>
-        <p className="text-[10px] lg:text-xs font-black text-slate-600 uppercase">© 2025 Triakustika Sunda - Digital Sonic Lab</p>
+      {/* Footer Utama - Satu-satunya tempat Copyright sekarang */}
+      <footer className="w-full py-3 lg:py-6 border-t border-indigo-500/10 text-center flex flex-col items-center gap-1 mt-auto">
+        <h4 className="font-black text-sm lg:text-lg text-slate-400 tracking-[0.1em] uppercase">TRIAKUSTIKA SUNDA</h4>
+        <p className="text-[10px] lg:text-xs uppercase tracking-[0.3em] font-black text-slate-500">Gunung, Frekuensi, dan Kosmologi Tembang Sunda</p>
+        <p className="text-[10px] lg:text-xs font-black text-slate-600 uppercase">© 2025 Triakustika Sunda - Digital Sonic Lab - Tata Sutaryat</p>
       </footer>
 
       {isLoading && (
