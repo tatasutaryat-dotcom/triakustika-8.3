@@ -238,173 +238,197 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden p-2 lg:p-4 gap-2 bg-slate-950 text-slate-200">
-      <header className="flex flex-col lg:flex-row justify-between items-start lg:items-center border-b border-indigo-500/30 pb-2">
+    <div className="flex flex-col h-screen overflow-hidden p-3 lg:p-6 gap-3 bg-[#020617] text-slate-200">
+      <header className="flex flex-col lg:flex-row justify-between items-start lg:items-center border-b border-indigo-500/20 pb-4">
         <div className="flex flex-col">
-          <div className="flex items-center gap-2">
-            <h1 className="text-xl lg:text-2xl font-black bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent uppercase tracking-tighter">Triakustika 8.3</h1>
-            <span className="px-2 py-0.5 bg-indigo-500/20 rounded text-[8px] font-black text-indigo-400 border border-indigo-500/30">v8.3.1 - REVISED</span>
+          <div className="flex items-center gap-3">
+            <h1 className="text-2xl lg:text-4xl font-black bg-gradient-to-r from-indigo-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent uppercase tracking-tighter">Triakustika 8.3</h1>
+            <div className="flex items-center gap-1.5 px-3 py-1 bg-emerald-500/10 rounded-full border border-emerald-500/30 animate-pulse">
+               <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
+               <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest">LIVE SYSTEM v8.3.5</span>
+            </div>
           </div>
-          <span className="text-xs lg:text-sm text-indigo-300 font-black tracking-widest uppercase">
-            Digital Sonic Lab - Tata Sutaryat
+          <span className="text-xs lg:text-sm text-indigo-400/80 font-black tracking-[0.3em] uppercase mt-1">
+            Digital Sonic Lab — Tata Sutaryat
           </span>
         </div>
       </header>
 
-      <main className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-3 overflow-hidden">
-        {/* Kolom Rumpaka (Lirik) */}
-        <section className="bg-slate-900/40 border border-slate-800 rounded-xl p-3 lg:p-4 flex flex-col gap-2 shadow-xl overflow-hidden">
+      <main className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-4 overflow-hidden">
+        {/* Rumpaka Section */}
+        <section className="bg-slate-900/40 border border-slate-800/50 rounded-2xl p-4 flex flex-col gap-3 shadow-2xl backdrop-blur-md overflow-hidden group">
           <div className="flex justify-between items-center">
-            <label className="text-amber-500 font-black uppercase tracking-widest text-[10px]">Rumpaka (Lirik)</label>
+            <label className="text-amber-500 font-black uppercase tracking-[0.2em] text-[11px] flex items-center gap-2">
+              <span className="w-4 h-[2px] bg-amber-500"></span>
+              Rumpaka Lirik
+            </label>
           </div>
           <textarea 
             value={rumpaka} 
             onChange={(e) => setRumpaka(e.target.value)} 
-            placeholder="Ketik lirik di sini..." 
-            className="flex-1 bg-black/40 border border-slate-800 rounded-lg p-3 lg:p-5 text-emerald-400 placeholder:text-slate-900 outline-none resize-none text-base lg:text-xl font-bold focus:border-indigo-500/50 transition-all scrollbar-hide"
+            placeholder="Tulis lirik tembang di sini..." 
+            className="flex-1 bg-black/60 border border-slate-800 rounded-xl p-4 lg:p-6 text-emerald-400 placeholder:text-slate-800 outline-none resize-none text-lg lg:text-2xl font-bold focus:border-indigo-500/50 transition-all scrollbar-hide shadow-inner"
           />
         </section>
 
-        {/* Kolom Identitas & Sensing - Copyright di sini sudah dihapus total */}
-        <section className="bg-slate-900/40 border border-slate-800 rounded-xl p-3 lg:p-4 flex flex-col gap-2 relative shadow-xl overflow-hidden">
-          <div className="grid grid-cols-1 gap-2">
-            <div className="flex flex-col gap-1">
-              <label className="text-[10px] uppercase font-black text-indigo-400 ml-1">Nama Juru Mamaos</label>
+        {/* Sensing Section */}
+        <section className="bg-slate-900/40 border border-slate-800/50 rounded-2xl p-4 flex flex-col gap-4 relative shadow-2xl backdrop-blur-md overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+            <div className="flex flex-col gap-1.5">
+              <label className="text-[10px] uppercase font-black text-indigo-400/80 tracking-widest ml-1">Nama Juru Mamaos</label>
               <input 
                 type="text" 
-                placeholder="Nama Juru Mamaos" 
+                placeholder="Identitas Mamaos" 
                 value={mamaosName} 
                 onChange={(e) => setMamaosName(e.target.value)} 
-                className="bg-black/60 border border-slate-800 focus:border-indigo-500/50 outline-none rounded-lg px-3 py-2 font-black text-sm lg:text-base text-white transition-all shadow-md" 
+                className="bg-black/60 border border-slate-800 focus:border-indigo-500/50 outline-none rounded-xl px-4 py-3 font-black text-sm lg:text-base text-white transition-all shadow-md placeholder:text-slate-800" 
               />
             </div>
-            <div className="flex flex-col gap-1">
-              <label className="text-[10px] uppercase font-black text-indigo-400 ml-1">Judul Lagu</label>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-[10px] uppercase font-black text-indigo-400/80 tracking-widest ml-1">Judul Tembang</label>
               <input 
                 type="text" 
-                placeholder="Judul Lagu" 
+                placeholder="Judul Karya" 
                 value={songTitle} 
                 onChange={(e) => setSongTitle(e.target.value)} 
-                className="bg-black/60 border border-slate-800 focus:border-indigo-500/50 outline-none rounded-lg px-3 py-2 font-black text-sm lg:text-base text-white transition-all shadow-md" 
+                className="bg-black/60 border border-slate-800 focus:border-indigo-500/50 outline-none rounded-xl px-4 py-3 font-black text-sm lg:text-base text-white transition-all shadow-md placeholder:text-slate-800" 
               />
             </div>
           </div>
           
-          <div className="flex-1 bg-black rounded-xl border border-indigo-500/20 overflow-hidden relative shadow-inner">
-            <canvas ref={canvasRef} width={800} height={400} className="w-full h-full object-cover opacity-90" />
+          <div className="flex-1 bg-black rounded-2xl border border-indigo-500/10 overflow-hidden relative shadow-2xl group">
+            <canvas ref={canvasRef} width={800} height={400} className="w-full h-full object-cover opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
             {!isSensing && currentFrequencies.f1 === 0 && (
-              <div className="absolute inset-0 flex items-center justify-center text-slate-800 font-black uppercase tracking-widest text-[10px] pointer-events-none">
-                Sonic Ready
+              <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                <span className="text-slate-800 font-black uppercase tracking-[0.5em] text-[10px]">Frequency Engine Standby</span>
+                <div className="w-32 h-[1px] bg-indigo-500/10 mt-2"></div>
               </div>
             )}
           </div>
 
           <button 
             onClick={isSensing ? () => stopSensing() : startSensing} 
-            className={`w-full py-4 lg:py-5 rounded-xl font-black uppercase tracking-[0.2em] text-sm lg:text-xl transition-all transform active:scale-95 shadow-2xl ${
+            className={`w-full py-5 lg:py-6 rounded-2xl font-black uppercase tracking-[0.3em] text-sm lg:text-2xl transition-all transform active:scale-[0.98] shadow-2xl flex items-center justify-center gap-3 ${
               isSensing 
-                ? 'bg-red-600 animate-pulse shadow-red-900/60 text-white' 
-                : 'bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 shadow-indigo-900/60 text-white'
+                ? 'bg-red-600 animate-pulse shadow-red-900/40 text-white ring-4 ring-red-600/20' 
+                : 'bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700 hover:scale-[1.01] shadow-indigo-900/40 text-white border border-white/10'
             }`}
           >
-            {isSensing ? 'Berhenti & Analisis' : 'MULAI RECORD'}
+            {isSensing ? (
+              <>
+                <span className="w-3 h-3 bg-white rounded-full animate-ping"></span>
+                Berhenti & Analisis
+              </>
+            ) : 'Mulai Recording'}
           </button>
         </section>
       </main>
 
-      {/* Satu-satunya Footer Utama di halaman ini */}
-      <footer className="w-full py-4 lg:py-6 border-t border-indigo-500/10 text-center flex flex-col items-center gap-1 mt-auto">
-        <h4 className="font-black text-sm lg:text-lg text-slate-400 tracking-[0.2em] uppercase">TRIAKUSTIKA SUNDA</h4>
-        <p className="text-[10px] lg:text-xs uppercase tracking-[0.3em] font-black text-slate-500">Gunung, Frekuensi, dan Kosmologi Tembang Sunda</p>
-        <p className="text-[10px] lg:text-xs font-black text-slate-600 uppercase">© 2025 Triakustika Sunda - Digital Sonic Lab - Tata Sutaryat</p>
+      <footer className="w-full py-4 lg:py-8 border-t border-indigo-500/10 flex flex-col items-center gap-2 mt-auto">
+        <div className="flex items-center gap-4 opacity-40 group hover:opacity-100 transition-opacity">
+           <div className="h-[1px] w-12 bg-indigo-500"></div>
+           <h4 className="font-black text-xs lg:text-base text-slate-300 tracking-[0.4em] uppercase">Triakustika Sunda</h4>
+           <div className="h-[1px] w-12 bg-indigo-500"></div>
+        </div>
+        <p className="text-[9px] lg:text-[11px] uppercase tracking-[0.3em] font-black text-slate-500/80">
+          Digital Sonic Laboratory — Versi 8.3.5 Master — © 2025 Tata Sutaryat
+        </p>
       </footer>
 
-      {/* Loading Overlay */}
+      {/* Modern Loading Glassmorphism */}
       {isLoading && (
-        <div className="fixed inset-0 bg-slate-950/98 backdrop-blur-3xl z-[300] flex flex-col items-center justify-center p-8 text-center">
-          <div className="relative w-16 h-16 mb-4">
-            <div className="absolute inset-0 border-4 border-indigo-500/10 rounded-full" />
-            <div className="absolute inset-0 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+        <div className="fixed inset-0 bg-[#020617]/95 backdrop-blur-2xl z-[300] flex flex-col items-center justify-center p-8 text-center">
+          <div className="relative w-24 h-24 mb-6">
+            <div className="absolute inset-0 border-[6px] border-indigo-500/5 rounded-full" />
+            <div className="absolute inset-0 border-[6px] border-indigo-500 border-t-transparent rounded-full animate-spin" />
+            <div className="absolute inset-4 border-[2px] border-emerald-500/20 border-b-transparent rounded-full animate-[spin_1.5s_linear_infinite]" />
           </div>
-          <h2 className="text-xl lg:text-3xl font-black uppercase tracking-[0.3em] bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent mb-2">Merajut Frekuensi</h2>
-          <p className="text-slate-500 font-black max-w-sm uppercase text-[8px] tracking-[0.2em] leading-relaxed">Prosesing Getaran Kecerdasan Buatan...</p>
+          <h2 className="text-2xl lg:text-4xl font-black uppercase tracking-[0.4em] bg-gradient-to-r from-indigo-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent mb-3">AI Resonansi</h2>
+          <p className="text-slate-500 font-black max-w-sm uppercase text-[9px] tracking-[0.2em] leading-relaxed opacity-60">
+            Mengukur panca waluya melalui algoritma getaran semesta...
+          </p>
         </div>
       )}
 
-      {/* Result Modal */}
+      {/* Enhanced Result Modal */}
       {analysisResult && (
-        <div className="fixed inset-0 bg-slate-950 z-[200] overflow-y-auto p-4 lg:p-10 animate-in fade-in zoom-in duration-500">
+        <div className="fixed inset-0 bg-[#020617] z-[200] overflow-y-auto p-4 lg:p-12 animate-in fade-in zoom-in duration-700">
           <button 
             onClick={() => setAnalysisResult(null)} 
-            className="fixed top-4 right-4 bg-slate-800 hover:bg-slate-700 w-10 h-10 rounded-full font-black text-xl transition-transform active:scale-90 z-[210] shadow-2xl border border-white/10"
+            className="fixed top-6 right-6 bg-slate-800/80 hover:bg-white hover:text-black w-12 h-12 rounded-full font-black text-xl transition-all active:scale-90 z-[210] shadow-2xl border border-white/10 flex items-center justify-center"
           >
             ✕
           </button>
           
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-6 py-4">
-            <div className="space-y-6">
-              <div className="space-y-1">
-                <span className="text-indigo-400 font-black uppercase tracking-widest text-[10px]">Laboratorium Sonic</span>
-                <h3 className="text-2xl lg:text-5xl font-black text-amber-500 uppercase leading-none tracking-tighter">Narasi Getaran</h3>
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 py-4">
+            <div className="space-y-8">
+              <div className="space-y-2">
+                <span className="text-indigo-400 font-black uppercase tracking-[0.3em] text-[10px] block">Laporan Laboratorium Sonic</span>
+                <h3 className="text-3xl lg:text-6xl font-black text-amber-500 uppercase leading-none tracking-tighter">Narasi Getaran</h3>
               </div>
-              <div className="bg-slate-900/60 border border-slate-800 p-6 lg:p-10 rounded-3xl text-lg lg:text-2xl leading-relaxed shadow-2xl backdrop-blur-xl italic text-slate-200 font-serif">
+              <div className="bg-slate-900/40 border border-white/5 p-8 lg:p-12 rounded-[2.5rem] text-xl lg:text-3xl leading-relaxed shadow-2xl backdrop-blur-3xl italic text-slate-100 font-serif relative">
+                <span className="absolute -top-6 -left-2 text-8xl text-indigo-500/10 font-serif">“</span>
                 {analysisResult.text}
               </div>
-              <div className="flex gap-3">
-                <div className="flex-1 bg-indigo-900/40 border border-indigo-500/40 p-4 rounded-2xl text-center shadow-xl">
-                  <span className="block text-[8px] uppercase text-indigo-400 font-black mb-1 tracking-widest">Dominansi Buana</span>
-                  <span className="font-black text-white block text-sm lg:text-lg uppercase tracking-tighter">{analysisResult.dominantBuana}</span>
+              <div className="flex gap-4">
+                <div className="flex-1 bg-indigo-900/20 border border-indigo-500/20 p-5 rounded-3xl text-center shadow-xl group hover:border-indigo-500/50 transition-colors">
+                  <span className="block text-[9px] uppercase text-indigo-400 font-black mb-1.5 tracking-widest opacity-60">Dominansi Buana</span>
+                  <span className="font-black text-white block text-sm lg:text-xl uppercase tracking-tighter">{analysisResult.dominantBuana}</span>
                 </div>
-                <div className="flex-1 bg-emerald-900/40 border border-emerald-500/40 p-4 rounded-2xl text-center shadow-xl">
-                  <span className="block text-[8px] uppercase text-emerald-400 font-black mb-1 tracking-widest">Kualitas Batin</span>
-                  <span className="font-black text-white block text-sm lg:text-lg uppercase tracking-tighter">{analysisResult.quality}</span>
+                <div className="flex-1 bg-emerald-900/20 border border-emerald-500/20 p-5 rounded-3xl text-center shadow-xl group hover:border-emerald-500/50 transition-colors">
+                  <span className="block text-[9px] uppercase text-emerald-400 font-black mb-1.5 tracking-widest opacity-60">Kualitas Batin</span>
+                  <span className="font-black text-white block text-sm lg:text-xl uppercase tracking-tighter">{analysisResult.quality}</span>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-6">
-              <div className="bg-slate-900/60 rounded-3xl overflow-hidden border border-white/10 shadow-2xl flex flex-col">
-                <div className="relative overflow-hidden group">
+            <div className="space-y-8">
+              <div className="bg-slate-900/40 rounded-[3rem] overflow-hidden border border-white/5 shadow-2xl flex flex-col group">
+                <div className="relative overflow-hidden aspect-square">
                   <img 
                     src={analysisResult.imageUrl} 
                     alt="Musonography"
-                    className="w-full aspect-square object-cover transition-transform duration-1000 group-hover:scale-110" 
+                    className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" 
                   />
-                  <div className="absolute top-4 left-4 bg-indigo-600 shadow-2xl text-white px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest">
-                    MUSONOGRAPHY V.8
+                  <div className="absolute top-6 left-6 bg-indigo-600/90 shadow-2xl text-white px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest border border-white/20 backdrop-blur-md">
+                    MUSONOGRAPHY MASTER v8
                   </div>
                 </div>
                 
-                <div className="p-6 bg-black/70 border-t border-white/10">
-                  <h5 className="text-amber-500 font-black uppercase text-[10px] tracking-[0.3em] mb-2">Catatan Kuratorial:</h5>
-                  <p className="text-slate-200 text-sm lg:text-lg font-bold leading-relaxed italic mb-4">
+                <div className="p-8 bg-black/40 border-t border-white/5">
+                  <h5 className="text-amber-500 font-black uppercase text-[11px] tracking-[0.4em] mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+                    Kuratorial Visual:
+                  </h5>
+                  <p className="text-slate-300 text-base lg:text-xl font-medium leading-relaxed italic mb-6">
                     "{analysisResult.curatorial}"
                   </p>
                   <button 
                     onClick={downloadPoster}
-                    className="flex items-center gap-2 text-indigo-400 hover:text-white font-black uppercase text-[10px] tracking-[0.2em] transition-all group"
+                    className="flex items-center gap-3 text-indigo-400 hover:text-white font-black uppercase text-[11px] tracking-[0.2em] transition-all group/btn"
                   >
-                    <div className="p-2 bg-indigo-500/20 rounded-full group-hover:bg-indigo-500 group-hover:text-white transition-all shadow-lg">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    <div className="p-3 bg-indigo-500/10 rounded-2xl group-hover/btn:bg-indigo-500 group-hover/btn:text-white transition-all shadow-xl">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     </div>
-                    <span>Unduh Karya Digital</span>
+                    <span>Arsip Karya Digital</span>
                   </button>
                 </div>
               </div>
 
-              <div className="bg-white p-6 rounded-3xl flex flex-col items-center gap-4 shadow-2xl">
+              <div className="bg-white p-8 rounded-[3rem] flex flex-col items-center gap-6 shadow-2xl">
                 <div className="text-center">
-                  <h4 className="text-slate-950 font-black uppercase tracking-widest text-lg lg:text-xl">Sertifikat Digital</h4>
-                  <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest italic">Pindai QR untuk akses Smartphone</p>
+                  <h4 className="text-slate-950 font-black uppercase tracking-[0.2em] text-xl lg:text-2xl">Otoritas Digital</h4>
+                  <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest italic mt-1">Pindai QR untuk otentikasi smartphone</p>
                 </div>
-                <div className="p-2 bg-slate-50 border-2 border-slate-100 rounded-xl shadow-inner">
-                  <img src={qrCodeUrl} className="w-32 h-32 lg:w-48 lg:h-48 rounded-lg" alt="QR Code" />
+                <div className="p-3 bg-slate-50 border border-slate-100 rounded-[2rem] shadow-inner">
+                  <img src={qrCodeUrl} className="w-32 h-32 lg:w-48 lg:h-48 rounded-2xl" alt="QR Code" />
                 </div>
                 <button 
                   onClick={generatePDF} 
-                  className="w-full bg-slate-950 hover:bg-slate-900 text-white py-4 rounded-xl font-black uppercase tracking-[0.2em] transition-all transform active:scale-95 flex items-center justify-center gap-2 text-sm lg:text-base shadow-xl"
+                  className="w-full bg-slate-950 hover:bg-indigo-600 text-white py-5 rounded-2xl font-black uppercase tracking-[0.3em] transition-all transform active:scale-[0.97] flex items-center justify-center gap-3 text-sm lg:text-lg shadow-2xl"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                   Cetak Sertifikat
                 </button>
               </div>
