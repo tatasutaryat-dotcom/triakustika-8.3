@@ -241,7 +241,10 @@ const App: React.FC = () => {
     <div className="flex flex-col h-screen overflow-hidden p-2 lg:p-4 gap-2 bg-slate-950 text-slate-200">
       <header className="flex flex-col lg:flex-row justify-between items-start lg:items-center border-b border-indigo-500/30 pb-2">
         <div className="flex flex-col">
-          <h1 className="text-xl lg:text-2xl font-black bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent uppercase tracking-tighter">Triakustika 8.3</h1>
+          <div className="flex items-center gap-2">
+            <h1 className="text-xl lg:text-2xl font-black bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent uppercase tracking-tighter">Triakustika 8.3</h1>
+            <span className="px-2 py-0.5 bg-indigo-500/20 rounded text-[8px] font-black text-indigo-400 border border-indigo-500/30">v8.3.1 - REVISED</span>
+          </div>
           <span className="text-xs lg:text-sm text-indigo-300 font-black tracking-widest uppercase">
             Digital Sonic Lab - Tata Sutaryat
           </span>
@@ -249,7 +252,7 @@ const App: React.FC = () => {
       </header>
 
       <main className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-3 overflow-hidden">
-        {/* Kolom Rumpaka */}
+        {/* Kolom Rumpaka (Lirik) */}
         <section className="bg-slate-900/40 border border-slate-800 rounded-xl p-3 lg:p-4 flex flex-col gap-2 shadow-xl overflow-hidden">
           <div className="flex justify-between items-center">
             <label className="text-amber-500 font-black uppercase tracking-widest text-[10px]">Rumpaka (Lirik)</label>
@@ -262,7 +265,7 @@ const App: React.FC = () => {
           />
         </section>
 
-        {/* Kolom Identitas & Sensing - Copyright di dalam sini sudah dihapus */}
+        {/* Kolom Identitas & Sensing - Copyright di sini sudah dihapus total */}
         <section className="bg-slate-900/40 border border-slate-800 rounded-xl p-3 lg:p-4 flex flex-col gap-2 relative shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 gap-2">
             <div className="flex flex-col gap-1">
@@ -309,15 +312,16 @@ const App: React.FC = () => {
         </section>
       </main>
 
-      {/* Footer Utama - Satu-satunya tempat Copyright sekarang */}
-      <footer className="w-full py-3 lg:py-6 border-t border-indigo-500/10 text-center flex flex-col items-center gap-1 mt-auto">
-        <h4 className="font-black text-sm lg:text-lg text-slate-400 tracking-[0.1em] uppercase">TRIAKUSTIKA SUNDA</h4>
+      {/* Satu-satunya Footer Utama di halaman ini */}
+      <footer className="w-full py-4 lg:py-6 border-t border-indigo-500/10 text-center flex flex-col items-center gap-1 mt-auto">
+        <h4 className="font-black text-sm lg:text-lg text-slate-400 tracking-[0.2em] uppercase">TRIAKUSTIKA SUNDA</h4>
         <p className="text-[10px] lg:text-xs uppercase tracking-[0.3em] font-black text-slate-500">Gunung, Frekuensi, dan Kosmologi Tembang Sunda</p>
         <p className="text-[10px] lg:text-xs font-black text-slate-600 uppercase">© 2025 Triakustika Sunda - Digital Sonic Lab - Tata Sutaryat</p>
       </footer>
 
+      {/* Loading Overlay */}
       {isLoading && (
-        <div className="fixed inset-0 bg-slate-950/98 backdrop-blur-3xl z-[300] flex flex-col items-center justify-center p-8 text-center animate-in fade-in duration-500">
+        <div className="fixed inset-0 bg-slate-950/98 backdrop-blur-3xl z-[300] flex flex-col items-center justify-center p-8 text-center">
           <div className="relative w-16 h-16 mb-4">
             <div className="absolute inset-0 border-4 border-indigo-500/10 rounded-full" />
             <div className="absolute inset-0 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
@@ -327,6 +331,7 @@ const App: React.FC = () => {
         </div>
       )}
 
+      {/* Result Modal */}
       {analysisResult && (
         <div className="fixed inset-0 bg-slate-950 z-[200] overflow-y-auto p-4 lg:p-10 animate-in fade-in zoom-in duration-500">
           <button 
