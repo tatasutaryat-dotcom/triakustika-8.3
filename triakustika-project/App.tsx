@@ -4,7 +4,7 @@ import { GeminiService } from './services/geminiService';
 import { AudioData, AnalysisResult, BuanaType, QualityType } from './types';
 
 const VERSION_KEY = "TRIAKUSTIKA_ENGINE_V";
-const CURRENT_VERSION = "8.6.0-DIAMOND";
+const CURRENT_VERSION = "8.7.0-BRANDING";
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -134,16 +134,16 @@ const App: React.FC = () => {
           <div className="text-center lg:text-left">
             <div className="flex flex-col lg:flex-row items-center gap-4">
               <h1 className="text-3xl lg:text-4xl font-black bg-gradient-to-r from-cyan-400 to-slate-100 bg-clip-text text-transparent uppercase tracking-tight">
-                Triakustika <span className="text-cyan-500 font-light">8.6</span>
+                Triakustika <span className="text-cyan-500 font-light">8.7</span>
               </h1>
-              <span className="px-4 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-[10px] font-bold text-cyan-400 uppercase tracking-widest">Diamond Engine</span>
+              <span className="px-4 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-[10px] font-bold text-cyan-400 uppercase tracking-widest">Branding Edition</span>
             </div>
             <p className="text-[10px] text-slate-500 font-bold tracking-[0.4em] uppercase mt-2">Sonic Anthropology — Tata Sutaryat</p>
           </div>
           
-          <div className="hidden lg:flex flex-col items-end opacity-40">
+          <div className="hidden lg:flex flex-col items-end opacity-60">
             <span className="text-2xl font-mono font-bold text-cyan-100">{currentTime}</span>
-            <span className="text-[9px] font-black uppercase tracking-widest">Calibration: Optimal</span>
+            <span className="text-[9px] font-black uppercase tracking-widest text-cyan-400">System Ready & Calibrated</span>
           </div>
         </header>
 
@@ -170,7 +170,7 @@ const App: React.FC = () => {
                 <input 
                   type="text" placeholder="Juru Mamaos" value={mamaosName} 
                   onChange={(e) => setMamaosName(e.target.value)} 
-                  className="w-full bg-white/[0.02] border border-white/5 focus:border-cyan-500/30 outline-none rounded-xl px-5 py-4 font-bold text-white transition-all text-sm uppercase tracking-wide" 
+                  className="w-full bg-white/[0.02] border border-white/5 focus:border-cyan-500/30 outline-none rounded-xl px-5 py-4 font-bold text-white transition-all text-sm uppercase tracking-wide shadow-inner" 
                 />
               </div>
               <div className="space-y-2">
@@ -178,7 +178,7 @@ const App: React.FC = () => {
                 <input 
                   type="text" placeholder="Karya Tembang" value={songTitle} 
                   onChange={(e) => setSongTitle(e.target.value)} 
-                  className="w-full bg-white/[0.02] border border-white/5 focus:border-cyan-500/30 outline-none rounded-xl px-5 py-4 font-bold text-white transition-all text-sm uppercase tracking-wide" 
+                  className="w-full bg-white/[0.02] border border-white/5 focus:border-cyan-500/30 outline-none rounded-xl px-5 py-4 font-bold text-white transition-all text-sm uppercase tracking-wide shadow-inner" 
                 />
               </div>
             </div>
@@ -189,7 +189,7 @@ const App: React.FC = () => {
               {!isSensing && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                   <div className="w-12 h-12 border border-cyan-500/10 rounded-full animate-ping mb-4" />
-                  <span className="text-cyan-500/30 font-bold uppercase tracking-[0.6em] text-[9px]">Sensor Ready</span>
+                  <span className="text-cyan-500/30 font-bold uppercase tracking-[0.6em] text-[9px]">Sensor Active</span>
                 </div>
               )}
             </div>
@@ -207,13 +207,24 @@ const App: React.FC = () => {
           </section>
         </main>
 
-        <footer className="py-4 border-t border-white/5 flex flex-col lg:flex-row justify-between items-center gap-4 opacity-30">
-          <p className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">
-            v8.6.0 DIAMOND — TRIAKUSTIKA RESEARCH LAB
-          </p>
-          <p className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">
-            © 2025 Tata Sutaryat — Sundanese Sonic Authority
-          </p>
+        {/* Footer Branding - DIPERKUAT */}
+        <footer className="py-6 border-t border-white/10 flex flex-col lg:flex-row justify-between items-center gap-6 mt-2">
+          <div className="flex flex-col items-center lg:items-start">
+            <p className="text-xs lg:text-sm font-black text-white uppercase tracking-[0.4em]">
+              TRIAKUSTIKA RESEARCH LABORATORY <span className="text-cyan-500 ml-2">v8.7.0</span>
+            </p>
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">
+              SUNDANESE SONIC AUTHORITY — DIGITAL ANTHROPOLOGY ENGINE
+            </p>
+          </div>
+          <div className="flex flex-col items-center lg:items-end">
+            <p className="text-sm font-black text-cyan-400 uppercase tracking-[0.2em] italic">
+              © 2025 TATA SUTARYAT
+            </p>
+            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">
+              Panca Waluya Digital System • Hak Cipta Dilindungi
+            </p>
+          </div>
         </footer>
       </div>
 
@@ -263,6 +274,13 @@ const App: React.FC = () => {
                   </div>
                 </div>
               </div>
+            </div>
+            
+            {/* Branding Footer inside Result */}
+            <div className="text-center pt-12 opacity-50 border-t border-white/5">
+              <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-500">
+                TRIAKUSTIKA DIGITAL LABORATORY — GENERATED FOR {mamaosName.toUpperCase()}
+              </p>
             </div>
           </div>
         </div>
