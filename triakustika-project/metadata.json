@@ -1,0 +1,7 @@
+{
+  "name": "Triakustika 8.3 - Digitalisasi Panca Waluya",
+  "description": "A sophisticated digital laboratory for analyzing the vibrational frequencies and cultural essence of Tembang Sunda (Mamaos), blending ancient wisdom with advanced AI analysis.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
