@@ -1,8 +1,8 @@
 
 {
-  "name": "triakustika-8-6",
+  "name": "triakustika-8-7",
   "private": true,
-  "version": "8.6.0",
+  "version": "8.7.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
