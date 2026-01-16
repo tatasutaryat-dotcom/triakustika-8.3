@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRIAKUSTIKA 8.3 - Digital Sonic Lab</title>
+    <title>TRIAKUSTIKA 8.6 - DIAMOND</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Library Eksternal via CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.1/qrcode.min.js"></script>
+    <!-- QRCode Generator -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
 <script type="importmap">
 {
   "imports": {
@@ -22,9 +23,8 @@
 }
 </script>
 </head>
-<body class="bg-slate-950 text-white min-h-screen">
+<body class="bg-[#020617] text-slate-200 min-h-screen">
     <div id="root"></div>
-    <!-- Entry point utama untuk Vite. -->
-    <script type="module" src="/index.tsx"></script>
+    <script type="module" src="/index.tsx?v=8.6.0"></script>
 </body>
 </html>
